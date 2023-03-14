@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Spotify Client</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="icons/Spotify-icon.css" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+  <body onload="onPageLoad(); setInterval(refreshDevices,120000); currentlyPlaying()">
+    <div class="dashboard-container">
+      <select id="devices" class="form-control"></select>
+      <a href="../applications.html" type="button" id="dashboardBtn">Dashboard</a>
+      <button class="settingBtn">
+        <i class="ico-cog"></i>
+      </button>
+        <div class="dropdown-content">
+          <div class="setting-group">
+            <div class="slider-info">
+              <div class="sliderBtn round" id="extra-sliderBtn"></div>
+              <span>Extra Media Keys</span>
+            </div>
+          </div>
+          <div class="setting-group">
+            <div class="slider-info">
+              <div class="sliderBtn round" id="split-sliderBtn"></div>
+              <span>Split Play/Pause</span>
+            </div>
+          </div>
+          <div class="setting-group">
+            <div class="theme-info">
+              <button type="buton" class="themeBtn round ThemeBtn1" onclick="changeTheme('theme1')"></button>
+              <button type="buton" class="themeBtn round ThemeBtn2" onclick="changeTheme('theme2')"></button>
+              <span>Themes</span>
+            </div>
+          </div>
+        </div>
+            
+    </div>
+    <main>
+        <div id="player-container" class="hidden">
+          <div id="login">
+            <button id="login-button" onclick="requestAuthorization()">Log in with Spotify</button>
+          </div>
+          <div class="song-info">
+            <img src="favicon.png" id="albumImage"/>
+            <div class="song-details">
+              <h2 id="trackTitle"></h2>
+              <p id="trackArtist"></p>
+            </div>
+          </div>
+          <div class="time-controls">
+            <span id="current-time"></span>
+                <div class="slider">
+                    <input type="range" id="track-time-slider" class="slider-range" min="0" step="1" />
+                    <div class="slider-progress"></div>
+                </div>
+            <span id="duration"></span>
+          </div>
+          <div class="media-controls">
+            <button id="shuffle-button" onclick="shuffle()">
+              <i class="ico-shuffle"></i>
+            </button>
+            <button id="previous-button">
+              <i class="ico-backward" onclick="previous()"></i>
+            </button>
+            <button id="play-button" onclick="PlayPause()">
+              <i class="ico-play" id="pp-btn-ico"></i>
+            </button>
+            <button id="pause-button" onclick="pause()">
+              <i class="ico-pause"></i>
+            </button>
+            <button id="next-button" onclick="next()">
+              <i class="ico-forward"></i>
+            </button>
+            <button id="repeat-button" onclick="repeat()">
+              <i class="ico-repeat" id="r-btn-ico"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>Spotify Player by Foll2</p>
+      </footer>
+   </body>
+</html>
